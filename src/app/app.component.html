@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="nav">
+    <tb-side-nav *ngIf="isLoggedIn$ | async"></tb-side-nav>
+  </div>
+  <div class="main">
+    <tb-top-bar *ngIf="isLoggedIn$ | async"></tb-top-bar>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<tb-modal *ngIf="isModalOpen$ | async">
+  <tb-create-task *ngIf="isCreatingTask$ | async"></tb-create-task>
+
+  <tb-edit-task *ngIf="isEditingTask$ | async"></tb-edit-task>
+
+  <tb-create-category *ngIf="isCreatingCategory$ | async"></tb-create-category>
+</tb-modal>
